@@ -1,0 +1,24 @@
+.celebrity {
+	width: 800px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 50px;
+}
+
+.celeb-header {
+	text-align: center;
+}
+
+.name {
+	font-size: 3em;
+	margin: 5px 0;
+}
+
+.dates {
+	margin: 5px 0;
+}
+
+.subtitle {
+	font-size: 2em;
+	margin: 5px 0;
+}
