@@ -1,4 +1,4 @@
-.celebrity {
+#celebrity {
 	width: 800px;
 	margin-left: auto;
 	margin-right: auto;
@@ -22,3 +22,21 @@
 	font-size: 2em;
 	margin: 5px 0;
 }
+
+/* For every even numbered element, have a light yellow background. */
+#celebrity:nth-child(even) {
+	background-color: lightyellow;
+}
+
+/* For every odd numbered element, have a light blue background. */
+#celebrity:nth-child(odd) {
+	background-color: lightblue;
+}
+
+
+.add-border {
+	border: 10px dotted grey;
+}
+
+
+
