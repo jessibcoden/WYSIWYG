@@ -1,8 +1,31 @@
-#celebrity {
-	width: 800px;
+header {
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+textarea {
+	height: 100px;
+	width: 300px;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 75px;
+}
+
+#celeb-container {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: baseline;
+	justify-content: space-around;
+}
+
+.celebrity {
+	display: inline-block;
+	max-width: 500px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-bottom: 50px;
+	padding: 15px;
 }
 
 .celeb-header {
@@ -10,7 +33,7 @@
 }
 
 .name {
-	font-size: 3em;
+	font-size: 2em;
 	margin: 5px 0;
 }
 
@@ -23,13 +46,21 @@
 	margin: 5px 0;
 }
 
+img {
+	max-height: 400px;
+	max-width: 500px;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+
 /* For every even numbered element, have a light yellow background. */
-#celebrity:nth-child(even) {
+.celebrity:nth-child(even) {
 	background-color: lightyellow;
 }
 
 /* For every odd numbered element, have a light blue background. */
-#celebrity:nth-child(odd) {
+.celebrity:nth-child(odd) {
 	background-color: lightblue;
 }
 
