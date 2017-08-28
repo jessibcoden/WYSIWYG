@@ -67,77 +67,10 @@ var celebrities = [
 	}
 ]
 
-var input = document.getElementById('user-input');
-
-
-var bioContainer = document.getElementById('bio-container');
-
-
-console.log(celebrities);
-
-var counter = 0;
-var celebContainer = document.getElementById('celeb-container');
-for (; counter < celebrities.length; counter++) {
-  // Give each person element a unique identifier
-  celebContainer.innerHTML += `<div class="celebrity" id="person--${counter}"></div>`;
-}
-
-var celebCard = document.getElementById('celebrity');
-
-// adding two event listeners on the cardSectionArticle elements with a loop to account for grabbing elements by class
-for (var j = 0; j < celebrities.length; j++) {
-	celebCard[j].addEventListener('click', addBorder);
-	celebCard[j].addEventListener('click', focus);
-}
-
-// Create a DOM element for each of the objects inside the container.
-for (var i = 0; i < celebrities.length; i++){
-	var currentName = celebrities[i].name;
-	var currentBirth = celebrities[i].birth;
-	var currentDeath = celebrities[i].death;
-	var currentSubTitle = celebrities[i].subTitle;
-	var currentImage = celebrities[i].image;
-
-	var domString = '';
-		domString +=`<article id="celebrity">`;
-		domString +=	`<section class="celeb-header">`;
-		domString +=		`<h2 class="name">${currentName}</h2>`;
-		domString +=		`<h3 class="dates">(${currentBirth}-${currentDeath})</h3>`;
-		domString +=		`<h3 class="subtitle">${currentSubTitle}</h3>`
-		domString +=	`</section>`;
-		domString +=	`<img src="${currentImage}" alt="${currentName}">`;
-		for (var j = 0; j < currentCeleb.bio.length; j++) {
-		var currentBio = currentCeleb.bio[j];
-			domString +=`<section id="bio-container">`;
-			domString +=	`<p>${currentBio}</p>`;
-			domString +=`</section>`;
-		}
-		domString +=`</article>`;
-
-	celebContainer.innerHTML += domString;
-}
-
-
-console.log(celebCard);
-
-
-// removing border classes from elements and reset the input text box before adding a border to the clicked card 
-	// in order to make sure users can edit only one card at a time
-function addBorder(event) {
-	for (var k = 0; k < celebrities.length; k++) {
-		celebCard[k].classList.remove('add-border');
-	}
-	input.value = '';
-	this.classList.toggle('add-border');
-}
-
 // highlight the text field to signal to the user where to input new text for the biography
-function focus(event){
+function focus(e){
 	input.focus();
 }
-
-// add an event listener to the text input field to capture what the user enters
-input.addEventListener('keyup', editBio);
 
 // loop through each article to determine whether it has a border. if so, connect its biography section to the text 
 	// input field to allow the user to edit the biography field. reset the input field when the user presses the enter 
@@ -152,6 +85,72 @@ function editBio(event) {
 		input.value = '';
 	}
 }
+
+var input = document.getElementById('user-input');
+
+var bioContainer = document.getElementById('bio-container');
+
+console.log(celebrities);
+
+//For loop to create a div element for each celebrity. Create an empty counter then use it in the for loop to stop the loop from creating more celebrity divs than is needed.
+var counter = 0;
+var celebContainer = document.getElementById('celeb-container');
+for (; counter < celebrities.length; counter++) {
+  // Give each person element a unique identifier
+  celebContainer.innerHTML += `<div class="celebrity"${counter}></div>`;
+}
+
+// Create a DOM element for each of the objects inside the container.
+for (var i = 0; i < celebrities.length; i++){
+	var currentName = celebrities[i].name;
+	var currentBirth = celebrities[i].birth;
+	var currentDeath = celebrities[i].death;
+	var currentSubTitle = celebrities[i].subTitle;
+	var currentImage = celebrities[i].image;
+	var currentBio = celebrities[i].bio;
+
+	var domString = '';
+		domString +=`<article id="celebrity">`;
+		domString +=	`<h2 class="name">${currentName}</h2>`;
+		domString +=	`<h3 class="dates">(${currentBirth}-${currentDeath})</h3>`;
+		domString +=	`<h3 class="subtitle">${currentSubTitle}</h3>`
+		domString +=	`<img src="${currentImage}" alt="${currentName}">`;
+		for (var j = 0; j < currentBio.length; j++) {
+			domString +=`<section id="bio-container">`;
+			domString +=	`<p>${currentBio}</p>`;
+			domString +=`</section>`;
+		}
+		domString +=`</article>`;
+
+	celebContainer.innerHTML += domString;
+}
+
+var celebCard = document.getElementsByClassName('celebrity');
+
+console.log(celebCard);
+
+// removing border classes from elements and reset the input text box before adding a border to the clicked card 
+	// in order to make sure users can edit only one card at a time
+function addBorder(event) {
+	console.log(event);
+	for (var k = 0; k < celebrities.length; k++) {
+		celebCard.classList.remove('add-border');
+	}
+	input.value = '';
+	event.target.closest('article').classList.add('add-border');
+}
+
+// adding two event listeners on the celebCard elements with a loop to account for grabbing elements by class
+for (var j = 0; j < celebrities.length; j++) {
+	console.log("looping");
+	celebCard[j].addEventListener('click', addBorder);
+	celebCard[j].addEventListener('click', focus);
+}
+
+// add an event listener to the text input field to capture what the user enters
+input.addEventListener('keyup', editBio);
+
+
 
 
 
