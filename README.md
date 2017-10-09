@@ -1,7 +1,9 @@
 # WYSIWYG
-## NSS Assignment...
 
-## Requirements:
+> Nashville Software School, Full-Stack Dev Bootcamp, Front-End Independant Exercise
+> 
+
+### Requirements:
 	1. Create an array of objects that represents famous people (see structure below).
 ![screenshot](images/object-structure.png)
 
@@ -26,6 +28,20 @@
 
 	10.	When you press the enter/return key when typing in the input field, then the content of the input field should immediately be blank.
 ![screenshot](images/enter.png)
+
+### How to run (Node must be installed on your machine):
+```
+git clone https://github.com/lady-ace/WYSIWYG
+cd WYSIWYG
+npm install http-server -g
+http-server -p 8080
+```
+
+This will show in your browser at:
+`http://localhost:8080`
+
+### Contributors:
+[Jessica Brawner](https://github.com/lady-ace)
 
 
 
